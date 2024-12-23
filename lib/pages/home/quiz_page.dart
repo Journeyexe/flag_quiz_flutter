@@ -18,13 +18,13 @@ class QuizPageState extends State<QuizPage> {
   late List<Map<String, dynamic>> countries = [];
   late List<Map<String, dynamic>> options = [];
   late Map<String, dynamic> correctAnswer;
-  late Widget flagWidget; // Armazena o widget da bandeira
+  late Widget flagWidget;
   int score = 0;
   int totalQuestions = 0;
   late Timer timer;
   late int timeLeft;
   bool isLoading = true;
-  Map<String, Color> buttonColors = {}; // Armazena as cores dos botões
+  Map<String, Color> buttonColors = {};
 
   @override
   void initState() {
@@ -82,7 +82,7 @@ class QuizPageState extends State<QuizPage> {
     );
 
     setState(() {
-      buttonColors = {}; // Reseta as cores dos botões
+      buttonColors = {};
       totalQuestions++;
     });
   }
@@ -90,11 +90,11 @@ class QuizPageState extends State<QuizPage> {
   void checkAnswer(Map<String, dynamic> answer) {
     setState(() {
       if (answer == correctAnswer) {
-        buttonColors[answer['nome']] = Colors.green; // Botão verde para resposta correta
+        buttonColors[answer['nome']] = Colors.green;
         score++;
       } else {
-        buttonColors[answer['nome']] = Colors.red; // Botão vermelho para resposta incorreta
-        buttonColors[correctAnswer['nome']] = Colors.green; // Indica a resposta correta
+        buttonColors[answer['nome']] = Colors.red;
+        buttonColors[correctAnswer['nome']] = Colors.green;
       }
     });
 
